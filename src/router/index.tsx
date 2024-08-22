@@ -14,7 +14,7 @@ export const index = createBrowserRouter([
         children: [
             {index: true, element: <HomeComponent/>},
             {path: 'pokemons', element: <PokemonsPage/>},
-            {path: 'pokemons/:id', element: <PokemonPage/>},
+            {path: 'pokemons/:name', element: <PokemonPage/>},
             {path: 'search', element: <SearchPage/>},
             {path: 'favourite', element: <FavouritePokemons/>}
         ]
