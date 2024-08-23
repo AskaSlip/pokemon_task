@@ -1,6 +1,10 @@
-import React, {FC} from 'react';
+import React, {FC, useEffect, useState} from 'react';
 import {IChain, IEvolutionForms} from "../../models/IEvolutionForms";
 import PokemonImage from "../PokemonImageComponent/PokemonImage";
+import styles from './FormComponent.module.css'
+import {useAppDispatch, useAppSelector} from "../../redux/store";
+import {formAction} from "../../redux/slices/FormSlice";
+import FormInfoComponent from "../FormInfoComponent/FormInfoComponent";
 
 interface IProps {
     forms: IEvolutionForms
@@ -8,18 +12,32 @@ interface IProps {
 
 const FormComponent:FC<IProps> = ({forms}) => {
 
+    const dispatch = useAppDispatch()
+    let {form} = useAppSelector(state => state.FormSlice)
+
+    const [idForm, setIdForm] = useState<string | null>(null)
+
     const renderEvolutionChain = (chain: IChain) => {
 
+        const handleButtonClick = (url: string) => {
+            const urlParts = url.split('/');
+            const id = urlParts[urlParts.length - 2];
+            setIdForm(id);
+        }
+
+
         return (
-            <div style={{ marginLeft: '20px' }}> (styles for check)
-                <div>
-                    {chain.species.name}
-                    <PokemonImage url={chain.species.url}/>
+            <div className={styles.flex}>
+                <div >
+                    <button onClick={() => handleButtonClick(chain.species.url)}>
+                        {chain.species.name}
+                        <PokemonImage url={chain.species.url}/>
+                    </button>
                 </div>
                 {chain.evolves_to.length > 0 && (
-                    <div>
+                    <div className={styles.flex}>
                         {chain.evolves_to.map((evolution, index) => (
-                            <div key={index}>
+                            <div key={index} >
                                 {renderEvolutionChain(evolution)}
                             </div>
                         ))}
@@ -29,11 +47,16 @@ const FormComponent:FC<IProps> = ({forms}) => {
         );
     };
 
-    //todo make click element on form and open info about this form
+    useEffect(() => {
+        if (idForm)
+        dispatch(formAction.loadForm(+idForm))
+    }, [idForm, dispatch]);
 
     return (
         <div>
             {renderEvolutionChain(forms.chain)}
+            <hr/>
+            {idForm && <FormInfoComponent form={form} />}
         </div>
     );
 };
