@@ -20,7 +20,7 @@ const PokemonComponent:FC<IProps> = ({pokemon}) => {
             <h3>{pokemon.name}</h3>
             <hr/>
             <div>
-                <ul>
+                <ul> Stats
                     {pokemon.stats.map((stat,) => (
                         <li >
                             {stat.stat.name}: {stat.base_stat}
@@ -29,7 +29,7 @@ const PokemonComponent:FC<IProps> = ({pokemon}) => {
                 </ul>
             </div>
             <hr/>
-            <ul>
+            <ul> Abilities
                 {pokemon.abilities.map((abil) => (
                     <li >
                         Ability: {abil.ability.name}
@@ -37,7 +37,7 @@ const PokemonComponent:FC<IProps> = ({pokemon}) => {
                 ))}
             </ul>
             <hr/>
-            <ul>
+            <ul> Types
                 {pokemon.types.map((type) => (
                     <li >
                         {type.type.name}
