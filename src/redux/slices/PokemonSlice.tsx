@@ -2,9 +2,10 @@ import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import {IPokemonInfo} from "../../models/IPokemonInfo";
 import {PokemonServices} from "../../services/api.services";
 import {AxiosError} from "axios";
+import {ISearch} from "../../models/ISearch";
 
 type PokemonSlice = {
-    pokemon: IPokemonInfo
+    pokemon: IPokemonInfo,
 }
 
 const initPokemonSlice: PokemonSlice = {
@@ -32,7 +33,11 @@ const loadPokemon = createAsyncThunk ('PokemonSlice/loadPokemon', async (name:st
 export const PokemonSlice = createSlice({
     name: 'PokemonSlice',
     initialState: initPokemonSlice,
-    reducers: {},
+    reducers: {
+        resetPokemon: (state) => {
+            state.pokemon = initPokemonSlice.pokemon;
+        }
+    },
     extraReducers: builder =>
         builder
             .addCase(loadPokemon.fulfilled, (state, action) => {
@@ -41,6 +46,8 @@ export const PokemonSlice = createSlice({
 })
 
 export const pokemonAction = {
-    ...PokemonSlice,
+    ...PokemonSlice.actions,
     loadPokemon
 }
+
+export default PokemonSlice.reducer;

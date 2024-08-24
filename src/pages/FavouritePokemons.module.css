@@ -1,0 +1,11 @@
+.flex {
+    display: flex;
+    width: 150px;
+    border: green 2px solid;
+    justify-content: space-between;
+}
+
+.wrap {
+    display: flex;
+    justify-content: space-between;
+}

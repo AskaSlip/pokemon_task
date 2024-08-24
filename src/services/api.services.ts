@@ -4,6 +4,7 @@ import {IPokemonInfo} from "../models/IPokemonInfo";
 import {IEvolutionChain} from "../models/IEvolutionChain";
 import {IEvolutionForms} from "../models/IEvolutionForms";
 import {IFormInfo} from "../models/IFormInfo";
+import {ISearch} from "../models/ISearch";
 
 const axiosInstance = axios.create({
     baseURL: 'https://pokeapi.co/api/v2'
@@ -41,6 +42,16 @@ export const PokemonServices = {
 
     getFormInfo: async (id:number):Promise<IFormInfo> => {
         const response = await axiosInstance.get<IFormInfo>(`/pokemon-form/${id}`)
+        return response.data
+    },
+
+    searchByType: async (type:string): Promise<ISearch> => {
+        const response = await axiosInstance.get<ISearch>(`/type/${type}`)
+        return response.data
+    },
+
+    searchByAbilities: async (ability:string): Promise<ISearch> => {
+        const response = await axiosInstance.get<ISearch>(`/ability/${ability}`)
         return response.data
     }
 

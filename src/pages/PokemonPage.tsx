@@ -5,6 +5,7 @@ import PokemonComponent from "../components/PokemonComponent/PokemonComponent";
 import {pokemonAction} from "../redux/slices/PokemonSlice";
 import {useParams} from "react-router-dom";
 
+
 const PokemonPage = () => {
 
     const { name } = useParams<{ name: string }>();
@@ -19,7 +20,6 @@ const PokemonPage = () => {
     }, [name, dispatch]);
 
 
-    //todo add to favourite
     return (
         <div>
             pok by id

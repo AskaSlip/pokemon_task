@@ -1,4 +1,4 @@
-import React, {FC, useState} from 'react';
+import React, {FC, useEffect, useState} from 'react';
 import {useAppDispatch, useAppSelector} from "../../redux/store";
 import {pokemonAction} from "../../redux/slices/PokemonSlice";
 import PokemonComponent from "../PokemonComponent/PokemonComponent";
@@ -12,6 +12,12 @@ const SearchByName: FC = () => {
     const search = () => {
         if (SearchByName) dispatch(pokemonAction.loadPokemon(SearchByName.toLowerCase()))
     }
+
+    useEffect(() => {
+        return () => {
+            dispatch(pokemonAction.resetPokemon());
+        };
+    }, [dispatch]);
 
     return (
         <div>
