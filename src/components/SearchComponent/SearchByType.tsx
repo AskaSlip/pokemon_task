@@ -3,6 +3,8 @@ import {useAppDispatch, useAppSelector} from "../../redux/store";
 import {infoForSearchAction} from "../../redux/slices/InfoForSearchSlice";
 import PokemonImage from "../PokemonImageComponent/PokemonImage";
 import {Link} from "react-router-dom";
+import styles from './SearchComponent.module.css'
+
 
 const SearchByType = () => {
 
@@ -20,21 +22,23 @@ const SearchByType = () => {
     return (
         <div>
             <div>
-                <input
+                <input className={styles.input}
                     type="text"
                     placeholder="Search by type"
                     value={searchByType}
                     onChange={(e) => setSearchByType(e.target.value)}
                 />
-                <button onClick={search}>Search by type</button>
+                <button className={styles.btn}  onClick={search}>Search by type</button>
             </div>
-            <h3>{pokemonType.name}</h3>
-            {pokemonType.pokemon.map(pokemon => (
-                <Link to={'/pokemons/'+pokemon.pokemon.name}>
-                    <h4>{pokemon.pokemon.name}</h4>
-                    <PokemonImage url={pokemon.pokemon.url}/>
-                </Link>
-            ))}
+            <div className={styles.typeWrap}>
+                {pokemonType.pokemon.map(pokemon => (
+                    <Link className={styles.link} to={'/pokemons/' + pokemon.pokemon.name}>
+                        <div className={styles.pokemon}>
+                            <h4>{pokemon.pokemon.name}</h4>
+                            <PokemonImage url={pokemon.pokemon.url}/>
+                        </div>
+                    </Link>
+                ))}</div>
         </div>
     );
 };

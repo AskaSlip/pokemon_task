@@ -2,6 +2,7 @@ import React, {FC, useEffect, useState} from 'react';
 import {useAppDispatch, useAppSelector} from "../../redux/store";
 import {pokemonAction} from "../../redux/slices/PokemonSlice";
 import PokemonComponent from "../PokemonComponent/PokemonComponent";
+import styles from './SearchComponent.module.css'
 
 const SearchByName: FC = () => {
 
@@ -22,13 +23,13 @@ const SearchByName: FC = () => {
     return (
         <div>
             <div>
-                <input
+                <input className={styles.input}
                     type="text"
                     placeholder="Search by name"
                     value={SearchByName}
                     onChange={(e) => setSearchByName(e.target.value)}
                 />
-                <button onClick={search}>Search</button>
+                <button className={styles.btn} onClick={search}>Search by name</button>
             </div>
             {pokemon.id ? <PokemonComponent pokemon={pokemon}/> : <></>}
         </div>

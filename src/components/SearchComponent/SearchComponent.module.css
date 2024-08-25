@@ -1,16 +1,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Bungee+Tint&display=swap');
 
-
-.wrap {
-    width: 100vw;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-top: 10px;
-    align-items: center;
+.input {
+    width: 300px;
+    border-radius: 20px;
+    border: #be0202 2px solid;
+    margin: 5px;
+    height: 30px;
+text-align: center;
 }
 
-.pokemonBlock {
+.btn {
+    height: 30px;
+    width: 250px;
+    border-radius: 20px;
+    border: #be0202 2px solid;
+    background-color: #171616;
+    font-family: "Bungee Tint", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.typeWrap {
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+.pokemon {
     width: 18vw;
     height: 20vh;
     display: flex;
@@ -27,5 +44,4 @@
 
 .link {
     text-decoration: none;
-
 }

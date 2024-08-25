@@ -5,6 +5,7 @@ import SearchByAbility from "../components/SearchComponent/SearchByAbility";
 import {useAppDispatch} from "../redux/store";
 import {pokemonAction} from "../redux/slices/PokemonSlice";
 import {infoForSearchAction} from "../redux/slices/InfoForSearchSlice";
+import styles from './SearchPage.module.css'
 
 const SearchPage = () => {
 
@@ -17,10 +18,10 @@ const SearchPage = () => {
 
     return (
         <div>
-            here search
             <SearchByName/>
             <SearchByType/>
             <SearchByAbility/>
+
         </div>
     );
 };
