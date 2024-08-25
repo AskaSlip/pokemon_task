@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Tint&display=swap');
+
+
+.totalWrap {
+    width: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+}
+
+.btn {
+    width: 200px;
+    height: 50px;
+    margin: 20px;
+    font-family: "Bungee Tint", sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    border: #be0202 3px solid;
+    border-radius: 10px;
+    background-color: #171616;
+    cursor: pointer;
+}
+
+.wrapPokemon {
+    width: 90vw;
+    border: #be0202 3px solid;
+    border-radius: 20px;
+    margin: 10px;
+    padding: 10px;
+}
+
+.title {
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    font-family: "Bungee Tint", sans-serif;
+    font-weight: 400;
+    font-size: 50px;
+}
+
+.h {
+    font-family: "Bungee Tint", sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.list {
+    list-style-type: none;
+    font-size: 18px;
+    color: #171616;
+    font-style: italic;
+    font-weight: bold;
+    border: #be0202 2px solid;
+    border-radius: 20px;
+    width: 200px;
+    height: 30px;
+    margin-left: 10px;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.info {
+    display: flex;
+    justify-content: space-evenly;
+}

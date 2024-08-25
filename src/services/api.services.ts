@@ -25,6 +25,10 @@ export const PokemonServices = {
         return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`
     },
 
+    getExtraImage: (id: string) => {
+        return `https://www.pokemon.com/static-assets/content-assets/cms2/img/pokedex/full/${id}.png`
+    },
+
     getPokemon: async (name:string):Promise<IPokemonInfo> => {
         const response = await axiosInstance.get<IPokemonInfo>(`/pokemon/${name}`)
         return response.data

@@ -1,5 +1,6 @@
 import React, {FC} from 'react';
 import {useSearchParams} from "react-router-dom";
+import styles from './PaginationComponent.module.css'
 
 interface IProps {
     prev: string | null,
@@ -11,8 +12,8 @@ const Pagination: FC<IProps> = ({prev,next}) => {
 const [query, setQuery] = useSearchParams({page: '1'})
 
     return (
-        <div>
-            <button disabled={!prev} onClick={() => {
+        <div className={styles.wrap}>
+            <button className={styles.btn}  disabled={!prev} onClick={() => {
                 const page = query.get('page')
                 if (page) {
                     let currentPage= +page
@@ -20,17 +21,17 @@ const [query, setQuery] = useSearchParams({page: '1'})
                     setQuery({page: currentPage.toString()})
                 }
             }}>
-                prev
+                <img className={styles.left} src="/pagi.png" alt="arrow"/>
             </button>
-            <button disabled={!next} onClick={() => {
+            <button className={styles.btn} disabled={!next} onClick={() => {
                 const page = query.get('page')
                 if (page) {
-                    let currentPage= +page
-                    currentPage ++;
+                    let currentPage = +page
+                    currentPage++;
                     setQuery({page: currentPage.toString()})
                 }
             }}>
-                next
+                <img className={styles.right} src="/pagi.png" alt="arrow"/>
             </button>
         </div>
     );

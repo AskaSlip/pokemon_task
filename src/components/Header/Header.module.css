@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Tint&display=swap');
+.wrap {
+    width: 100vw;
+    height: 10.5vh;
+    background-color: #171616;
+    font-family: "Bungee Tint", sans-serif;
+    font-weight: 400;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 25px;
+    border-bottom: #be0202 4px solid;
+}
+
+.link {
+    text-decoration: none;
+}

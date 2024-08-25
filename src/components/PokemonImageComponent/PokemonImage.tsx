@@ -1,5 +1,6 @@
 import React, {FC} from 'react';
 import {PokemonServices} from "../../services/api.services";
+import styles from './Image.module.css'
 
 interface IProps {
     url: string
@@ -14,7 +15,7 @@ const PokemonImage: FC<IProps> = ({url}) => {
 
     return (
         <div>
-            <img src={pokemonImage} alt="pokemon"/>
+            <img className={styles.img} src={pokemonImage} alt="pokemon"/>
         </div>
     );
 };

@@ -1,9 +1,10 @@
 import React from 'react';
+import styles from './HomeComponent.module.css'
 
 const HomeComponent = () => {
     return (
-        <div>
-            Home
+        <div className={styles.back}>
+
         </div>
     );
 };

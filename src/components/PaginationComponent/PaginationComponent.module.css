@@ -1,0 +1,21 @@
+.wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10vw;
+    margin-top: 2vh;
+}
+
+.left {
+    rotate: 180deg;
+    width: 40px;
+}
+
+.right {
+    width: 40px;
+}
+.btn {
+    cursor: pointer;
+    border: none;
+    background: none;
+}

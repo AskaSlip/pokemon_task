@@ -49,7 +49,12 @@ const loadByAbility = createAsyncThunk(
 export const InfoForSearchSlice = createSlice({
     name: 'InfoForSearchSlice',
     initialState: initState,
-    reducers:{},
+    reducers:{
+        resetSearch: state => {
+            state.pokemonType = initState.pokemonType;
+            state.pokemonAbility = initState.pokemonAbility
+        }
+    },
     extraReducers: builder =>
         builder
             .addCase(loadByType.fulfilled, (state, action) => {

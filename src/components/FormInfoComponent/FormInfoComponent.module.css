@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Tint&display=swap');
+
+.title {
+    font-family: "Bungee Tint", sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.text {
+    color: #171616;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.pics {
+    display: flex;
+    gap: 50px;
+}
+
+.pic {
+    width: 150px;
+}

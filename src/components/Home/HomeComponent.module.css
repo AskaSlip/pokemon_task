@@ -1,0 +1,6 @@
+.back {
+    width: 100vw;
+    height: 89vh;
+    background-image: url(/public/pokemon-wallpaper.jpg);
+    background-size: cover;
+}

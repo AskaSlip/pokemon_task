@@ -28,7 +28,6 @@ const SearchByType = () => {
                 />
                 <button onClick={search}>Search by type</button>
             </div>
-
             <h3>{pokemonType.name}</h3>
             {pokemonType.pokemon.map(pokemon => (
                 <Link to={'/pokemons/'+pokemon.pokemon.name}>

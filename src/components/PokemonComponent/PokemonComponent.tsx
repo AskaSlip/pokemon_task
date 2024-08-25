@@ -1,7 +1,8 @@
-import React, {FC, useEffect} from 'react';
+import React, {FC, useEffect, useState} from 'react';
 import {IPokemonInfo} from "../../models/IPokemonInfo";
 import {PokemonServices} from "../../services/api.services";
 import FormsComponent from "../FormsComponent/FormsComponent";
+import styles from './PokemonComponent.module.css'
 
 interface IProps {
     pokemon: IPokemonInfo
@@ -27,46 +28,62 @@ const PokemonComponent:FC<IProps> = ({pokemon}) => {
         localStorage.setItem('favoritePokemons', JSON.stringify(existingFavorites));
     }
 
-    const image = PokemonServices.getImage(pokemon.id.toString())
+    let [img, setImg] = useState<string | null>(null)
+
+    useEffect(() => {
+        let newImg: string;
+        if (pokemon.id < 10) {
+            newImg = PokemonServices.getExtraImage('00' + pokemon.id);
+        }else if(pokemon.id < 100)
+        {
+            newImg = PokemonServices.getExtraImage('0' + pokemon.id);
+        }
+        else {
+            newImg = PokemonServices.getExtraImage(pokemon.id.toString());
+        }
+        setImg(newImg);
+    }, [pokemon.id]);
+
 
     return (
-        <div>
-            <button onClick={handleButtonAddToFavourite}>
+        <div className={styles.totalWrap}>
+            <button className={styles.btn} onClick={handleButtonAddToFavourite}>
                 Add to favorite Pokemons
             </button>
-            <h1>{pokemon.id}</h1>
-            <hr/>
-            <img src={image} alt="pokemon"/>
-            <hr/>
-            <h3>{pokemon.name}</h3>
-            <hr/>
-            <div key={pokemon.id}>
-                <ul> Stats
-                    {pokemon.stats.map((stat,) => (
-                        <li>
-                            {stat.stat.name}: {stat.base_stat}
-                        </li>
-                    ))}
-                </ul>
-            </div>
-            <hr/>
-            <ul> Abilities
-                {pokemon.abilities.map((abil) => (
-                    <li>
-                        Ability: {abil.ability.name}
-                    </li>
-                ))}
-            </ul>
-            <hr/>
-            <ul> Types
-                {pokemon.types.map((type) => (
-                    <li>
-                        {type.type.name}
-                    </li>
-                ))}
-            </ul>
-            <hr/>
-            <FormsComponent id={pokemon.id}/>
+
+            <div className={styles.wrapPokemon}>
+                <div className={styles.title}>
+                    {img && <img src={img} alt={pokemon.name}/>}
+                    <h3>{pokemon.name}</h3>
+                </div>
+                <div className={styles.info}>
+                    <ul>
+                        <h3 className={styles.h}>Stats</h3>
+                        {pokemon.stats.map((stat,) => (
+                            <li className={styles.list}>
+                                {stat.stat.name}: {stat.base_stat}
+                            </li>
+                        ))}
+                    </ul>
+                    <ul>
+                        <h3 className={styles.h}>Abilities</h3>
+                        {pokemon.abilities.map((abil) => (
+                            <li className={styles.list}>
+                                {abil.ability.name}
+                            </li>
+                        ))}
+                    </ul>
+                    <ul>
+                        <h3 className={styles.h}>Types</h3>
+                        {pokemon.types.map((type) => (
+                            <li className={styles.list}>
+                                {type.type.name}
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+
+                <FormsComponent id={pokemon.id}/></div>
         </div>
     );
 };

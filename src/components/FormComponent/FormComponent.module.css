@@ -1,3 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Tint&display=swap');
+
 .flex {
     display: flex;
+    justify-content: center;
+}
+
+.btn {
+    width: 150px;
+    height: 150px;
+    background: none;
+    cursor: pointer;
+    border: #be0202 2px solid;
+    border-radius: 20px;
+    font-family: "Bungee Tint", sans-serif;
+    font-weight: 400;
+    margin: 15px;
+}
+
+.flexAll {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+
 }

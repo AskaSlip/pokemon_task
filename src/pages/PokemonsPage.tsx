@@ -23,7 +23,6 @@ const PokemonsPage = () => {
     return (
         <div>
             <PokemonsComponent pokemons={pokemons}/>
-            <hr/>
             <Pagination prev={previous} next={next}/>
         </div>
     );

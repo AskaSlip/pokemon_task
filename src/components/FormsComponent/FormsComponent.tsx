@@ -3,6 +3,7 @@ import {PokemonServices} from "../../services/api.services";
 import {IEvolutionChain} from "../../models/IEvolutionChain";
 import {IEvolutionForms} from "../../models/IEvolutionForms";
 import FormComponent from "../FormComponent/FormComponent";
+import styles from './FormsComponent.module.css'
 
 interface IProps {
     id: number
@@ -13,8 +14,14 @@ const FormsComponent: FC<IProps> = ({id}) => {
     const [evolutionChain, setEvolutionChain] = useState<IEvolutionChain | null>(null);
     useEffect(() => {
         const fetchEvolutionChain = async () => {
+            if (id){
+                try {
             const response = await PokemonServices.getEvolutionChain(id);
             setEvolutionChain(response);
+                }catch (e){
+                    console.error('not info about pokemon')
+                }
+            }
         };
         fetchEvolutionChain();
     }, [id]);
@@ -40,7 +47,7 @@ const FormsComponent: FC<IProps> = ({id}) => {
 
 
     return (
-        <div>
+        <div className={styles.wrap}>
             {forms && (
                 <FormComponent forms={forms} />)
             }

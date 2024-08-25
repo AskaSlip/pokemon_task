@@ -28,8 +28,8 @@ const FormComponent:FC<IProps> = ({forms}) => {
 
         return (
             <div className={styles.flex}>
-                <div >
-                    <button onClick={() => handleButtonClick(chain.species.url)}>
+                <div>
+                    <button className={styles.btn} onClick={() => handleButtonClick(chain.species.url)}>
                         {chain.species.name}
                         <PokemonImage url={chain.species.url}/>
                     </button>
@@ -53,8 +53,8 @@ const FormComponent:FC<IProps> = ({forms}) => {
     }, [idForm, dispatch]);
 
     return (
-        <div>
-            {renderEvolutionChain(forms.chain)}
+        <div className={styles.flexAll}>
+            { renderEvolutionChain(forms.chain)}
             <hr/>
             {idForm && <FormInfoComponent form={form} />}
         </div>

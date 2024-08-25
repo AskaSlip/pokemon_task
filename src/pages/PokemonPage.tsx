@@ -22,9 +22,7 @@ const PokemonPage = () => {
 
     return (
         <div>
-            pok by id
             <PokemonComponent pokemon={pokemon}/>
-
         </div>
     );
 };

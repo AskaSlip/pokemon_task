@@ -31,8 +31,6 @@ const SearchByName: FC = () => {
                 <button onClick={search}>Search</button>
             </div>
             {pokemon.id ? <PokemonComponent pokemon={pokemon}/> : <></>}
-
-
         </div>
     );
 };

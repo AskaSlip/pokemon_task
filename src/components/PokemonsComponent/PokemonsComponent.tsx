@@ -15,7 +15,7 @@ const PokemonsComponent: FC <IProps> = ({pokemons }) => {
         <div className={styles.wrap}>
                 {pokemons.map((pokemon,index) =>
                     (<div key={index} className={styles.pokemonBlock}>
-                        <Link to={'/pokemons/' + pokemon.name}>
+                        <Link className={styles.link} to={'/pokemons/' + pokemon.name}>
                             {pokemon.name}
                             <PokemonImage url={pokemon.url}/>
                         </Link>
