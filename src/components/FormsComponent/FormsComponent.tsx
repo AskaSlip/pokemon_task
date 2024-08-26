@@ -32,7 +32,6 @@ const FormsComponent: FC<IProps> = ({id}) => {
         const fetchForms = async () => {
             if (evolutionChain?.evolution_chain.url) {
                 const path = evolutionChain.evolution_chain.url.replace('https://pokeapi.co/api/v2', '');
-                console.log('Fetching forms from path:', path);
 
                 try {
                     const response = await PokemonServices.getAllForms(path);

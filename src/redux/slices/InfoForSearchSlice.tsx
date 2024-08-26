@@ -24,7 +24,6 @@ const loadByType = createAsyncThunk(
     async (type: string, thunkAPI) => {
         try {
             const response = await PokemonServices.searchByType(type);
-            console.log('Response Data:', response);
             return thunkAPI.fulfillWithValue(response);
         } catch (e) {
             const error = e as AxiosError;
